@@ -1,0 +1,65 @@
+{
+  "config": {
+    "leagueName": "[TST] Testings",
+    "autoroles": false,
+    "spreadsheet_id": "1E8vg0FgUVzXrzrR6TuX7FaO-UywrMGtS0RH3DzlCs-w",
+    "sheetName": "Rawsheet"
+  },
+
+  "teams": {
+    "Netherlands": "🇳🇱",
+    "Italy": "🇮🇹",
+    "Uruguay": "🇺🇾",
+    "South Africa": "🇿🇦",
+    "Germany": "🇩🇪",
+    "France": "🇫🇷",
+    "Australia": "🇦🇺",
+    "Ecuador": "🇪🇨",
+    "Japan": "🇯🇵",
+    "Portugal": "🇵🇹",
+    "England": "🇬🇧",
+    "Morocco": "🇲🇦",
+    "Argentina": "🇦🇷",
+    "Jamaica": "🇯🇲",
+    "Croatia": "🇭🇷",
+    "Chile": "🇨🇱",
+    "United States": "🇺🇸",
+    "Spain": "🇪🇸",
+    "Colombia": "🇨🇴",
+    "Paraguay": "🇵🇾",
+    "Mexico": "🇲🇽",
+    "Peru": "🇵🇪",
+    "Bolivia": "🇧🇴",
+    "Egypt": "🇪🇬"
+  },
+
+  "roles": {
+    "Manager": "1534733449301196840",
+    "Staff": "1534720992079904769",
+
+    "ScrimP": "1510154609807589438",
+    "FriendlyP": "1510154663658524673",
+    "ScoutP": "1510169190601064528",
+    "GamenightP": "1510154709728759888",
+    "GiveawayP": "1510155826600476744",
+    "CCreationP": "1510154744403071117",
+
+    "autoroleMap": {
+    "⚽": "1510154609807589438",
+    "⚔️": "1510154663658524673",
+    "🔎": "1510169190601064528",
+    "🎮": "1510154709728759888",
+    "🎉": "1510155826600476744",
+    "📸": "1510154744403071117"
+  }
+  },
+  
+  "channels": {
+    "bot_logs": "1496261887925551236",
+    "friendlies": "1534747363573497876",
+    "free_agency": "1534755806774427769",
+    "sanctions": "1500039190577025084",
+    "scouting": "1510171963740393552",
+    "contracts": "1494190392277602399"
+  }
+}
