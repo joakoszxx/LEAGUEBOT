@@ -1,11 +1,12 @@
 {
   "tw": "opened",
   "squads": {
+    "TEAM": [
+      "DISCORD"
+    ]
   },
   "teamManagers": {},
   "contracts": {},
   "bans": [],
-  "emergencyUses": {
-
-  }
+  "emergencyUses": {}
 }
