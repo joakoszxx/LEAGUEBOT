@@ -49,13 +49,13 @@ async function addManagerToSheet(username, team, playerId) {
 
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: config.config.spreadsheet_id,
-    range: `${config.config.sheetName}!A:L`
+    range: `${config.config.sheetName}!A:M`
   });
 
   const rows = response.data.values || [];
 
   const existing = rows.find(
-    r => r[7] === playerId
+    r => r[11] === playerId
   );
 
   if (existing) {
@@ -85,6 +85,7 @@ async function addManagerToSheet(username, team, playerId) {
         `=BUSCARV(A${row},Datasheet!G:H,2,FALSO)`, // WAGE
         "0", // PENALTY
         `=H${row}-I${row}`, // TOTAL
+        "-", // CUP-TIED
         playerId, // DISCORD
         new Date().toLocaleString('es-PE') // I - timestamp
       ]]
@@ -125,6 +126,8 @@ module.exports = {
         ephemeral: true
       });
     }
+
+    await interaction.deferReply({ ephemeral: true });
 
     let storage;
     try {
@@ -178,8 +181,6 @@ module.exports = {
       );
     }
 
-    await interaction.reply(
-      `✅ ${dt} is now manager of **${team}**`
-    );
+   await interaction.editReply(`✅ ${dt} is now manager of **${team}**`);
   }
 };
