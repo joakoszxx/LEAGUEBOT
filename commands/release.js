@@ -21,7 +21,7 @@ async function removePlayerFromSheet(username, playerId, team) {
 
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: config.config.spreadsheet_id,
-    range: `${config.config.sheetName}!A:L`
+    range: `${config.config.sheetName}!A:M`
   });
 
   const rows = response.data.values || [];
@@ -34,7 +34,7 @@ async function removePlayerFromSheet(username, playerId, team) {
 
     const sheetUser = row[2]; // C
     const sheetTeam = row[4]; // E
-    const sheetPlayerId = row[10]; // H
+    const sheetPlayerId = row[11]; // L
 
     if (
       sheetUser === username &&
@@ -161,6 +161,8 @@ if (!releasedByIsStaff) {
       storage.squads[team] = storage.squads[team].filter(id => id !== player.id);
     }
 
+await interaction.deferReply({ ephemeral: true });
+
     fs.writeFileSync('./storage.json', JSON.stringify(storage, null, 2));
 
     // ====================== REMOVE FROM GOOGLE SHEETS ======================
@@ -237,9 +239,6 @@ if (logChannel) {
   await logChannel.send(logMessage);
 }
 
-    await interaction.reply({
-      content: "✅ Player released successfully",
-      ephemeral: true
-    });
+    await interaction.editReply("✅ Player released successfully");
   }
 };
