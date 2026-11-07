@@ -23,12 +23,12 @@ async function playerExistsInSheets(discordId) {
 
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: config.config.spreadsheet_id,
-    range: `${config.config.sheetName}!A:L`
+    range: `${config.config.sheetName}!A:M`
   });
 
   const rows = response.data.values || [];
 
-  return rows.some(row => row[10] === discordId);
+  return rows.some(row => row[11] === discordId);
 }
 
 module.exports = {
