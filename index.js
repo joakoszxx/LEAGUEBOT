@@ -56,7 +56,7 @@ async function loadSquadsFromSheets() {
   try {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: config.config.spreadsheet_id,
-      range: `${config.config.sheetName}!C:K`   // C hasta K (Nombre, Equipo, Rol, Discord ID)
+      range: `${config.config.sheetName}!C:L`   // C hasta K (Nombre, Equipo, Rol, Discord ID)
     });
 
     const rows = response.data.values || [];
@@ -79,7 +79,7 @@ async function loadSquadsFromSheets() {
       const robloxName = row[0];     // Columna C
       const team        = row[2];    // Columna E
       const role        = row[4];    // Columna G
-      const playerId    = row[8];    // Columna K
+      const playerId    = row[9];    // Columna K
 
       if (!team || !playerId) continue;
 
@@ -104,7 +104,8 @@ async function loadSquadsFromSheets() {
     );
 
     console.log("✅ Playersheet loaded from Google Sheets");
-    console.log(`   → ${Object.keys(storage.squads).length} teams loaded`);
+    console.log("👥 Jugadores leídos de Google Sheets:");
+    console.log(`   → ${Object.keys(storage.squads).length -1} teams loaded`);
     console.log(`   → ${Object.keys(storage.teamManagers).length} managers detected`);
 
   } catch (err) {
@@ -378,8 +379,9 @@ try {
                 `=BUSCARV(A${row},Datasheet!G:H,2,FALSO)`,  // H (WAGE)
                 "0",                                        // I (PENALTY)
                 `=H${row}-I${row}`,                         // J (TOTAL) 
-                playerId,                                   // K (DISCORD ID)
-                new Date().toLocaleString('es-PE')          // L - timestamp
+                "-",                                        // K (CUP-TIED)
+                playerId,                                   // l (DISCORD ID)
+                new Date().toLocaleString('es-PE')          // M - timestamp
             ]]
         }
     });
